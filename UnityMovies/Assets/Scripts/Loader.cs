@@ -13,6 +13,7 @@ public class Loader : MonoBehaviour
 
     private const string IMAGE_URL = "https://image.tmdb.org/t/p/w500";
     private const string URL = "https://api.themoviedb.org/3/discover/movie?api_key=a70f3df7b5f68e1d198a0ab44a5dff54&primary_release_year=2019&sort_by=popularity.desc&page=";
+
     void Start() 
     {
         Load();

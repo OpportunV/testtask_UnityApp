@@ -17,7 +17,7 @@ public class Shower : MonoBehaviour
     public GameObject moviePanel;
     public GameObject parentPanel;
 
-    private string URL = "https://www.themoviedb.org/movie/";
+    private const string URL = "https://www.themoviedb.org/movie/";
 
     void Start()
     {
@@ -25,6 +25,7 @@ public class Shower : MonoBehaviour
         width = parentPanel.GetComponent<HorizontalLayoutGroup>().spacing + moviePanel.GetComponent<RectTransform>().rect.width;
         transform.Find("Buttons").Find("Next").GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(ButtonClick(currentMovie + 1f)); });
         transform.Find("Buttons").Find("Previous").GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(ButtonClick(currentMovie - 1f)); });
+        transform.Find("Buttons").Find("Camera").GetComponent<Button>().onClick.AddListener(delegate { CameraButton(); });
     }
 
     void Update()
@@ -63,6 +64,11 @@ public class Shower : MonoBehaviour
         loader.Load();
         yield return new WaitForSeconds(1f);
         needMore = true;
+    }
+
+    private void CameraButton()
+    {
+
     }
 
     public void Show(Movie movie)
