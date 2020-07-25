@@ -23,6 +23,7 @@ public class Shower : MonoBehaviour
 
     void Start()
     {
+        CameraButton(false);
         loader = GetComponent<Loader>();
         width = parentPanel.GetComponent<HorizontalLayoutGroup>().spacing + moviePanel.GetComponent<RectTransform>().rect.width;
         transform.Find("Buttons").Find("Next").GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(ButtonClick(currentMovie + 1f)); });
