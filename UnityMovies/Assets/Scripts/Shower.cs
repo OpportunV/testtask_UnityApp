@@ -16,8 +16,8 @@ public class Shower : MonoBehaviour
 
     public GameObject moviePanel;
     public GameObject parentPanel;
+    public GameObject imageTargets;
     public GameObject arCamera;
-    public GameObject imageTarget;
 
     private const string URL = "https://www.themoviedb.org/movie/";
 
@@ -76,7 +76,7 @@ public class Shower : MonoBehaviour
     private void CameraButton(bool state)
     {
         arCamera.SetActive(state);
-        imageTarget.SetActive(state);
+        imageTargets.SetActive(state);
     }
 
 
@@ -96,6 +96,7 @@ public class Shower : MonoBehaviour
         innerPanel.Find("More").GetComponent<Button>().onClick.AddListener(delegate { Application.OpenURL(URL + movie.id); });
 
         RawImage poster = innerPanel.Find("Poster").GetComponent<RawImage>();
+        innerPanel.Find("Poster").GetComponent<Button>().onClick.AddListener(delegate { CameraButton(true); });
         StartCoroutine(loader.RequestImage(movie.posterPath, poster, ApplyImage));
 
         currentPanel.Find("ScrollRect").Find("Description").GetComponent<Text>().text = movie.overview;
