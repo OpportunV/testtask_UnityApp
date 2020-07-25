@@ -113,10 +113,10 @@ public class Shower : MonoBehaviour
             targetPos = new Vector3(-(currentMovie) * width, 0f, 0f);
         }
 
-        if (Input.touchCount == 1)
+/*        if (Input.touchCount == 1)
         {
             return;
-        }
+        }*/
 
         if (Input.GetMouseButton(0))
         {
